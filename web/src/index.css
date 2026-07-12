@@ -1,0 +1,629 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Geist+Mono:wght@400;500&family=Assistant:wght@400;500;600;700;800&family=Gveret+Levin:wght@400&display=swap");
+@import "katex/dist/katex.min.css";
+@import "tailwindcss";
+
+/* ============================================================================
+ * DESIGN.md token bridge — @theme exposes tokens to Tailwind v4 utilities
+ * (e.g. --color-primary → bg-primary, text-primary, border-primary, etc.)
+ * Source of truth: DESIGN.md. Mirror values exactly; do not invent new ones.
+ * ============================================================================ */
+@theme {
+  /* === Font families === */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "David Libre", "David", serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, sfmono-regular, monospace;
+  --font-playfair: "Playfair Display", serif;
+  --font-data: "DM Sans", sans-serif;
+
+  /* === Display scale (Space Grotesk) === */
+  --text-display-hero: 3.5rem;
+  --text-display-hero--line-height: 1.1;
+  --text-display-hero--letter-spacing: -0.02em;
+  --text-display-hero--font-weight: 800;
+
+  --text-display-h1: 2.5rem;
+  --text-display-h1--line-height: 1.15;
+  --text-display-h1--letter-spacing: -0.015em;
+  --text-display-h1--font-weight: 700;
+
+  --text-display-h2: 1.875rem;
+  --text-display-h2--line-height: 1.2;
+  --text-display-h2--letter-spacing: -0.01em;
+  --text-display-h2--font-weight: 700;
+
+  --text-display-h3: 1.5rem;
+  --text-display-h3--line-height: 1.25;
+  --text-display-h3--letter-spacing: -0.005em;
+  --text-display-h3--font-weight: 600;
+
+  /* === Semantic heading scale (Assistant) === */
+  --text-heading-page: 1.5rem;
+  --text-heading-page--line-height: 1.3;
+  --text-heading-page--font-weight: 800;
+
+  --text-heading-section: 1.125rem;
+  --text-heading-section--line-height: 1.4;
+  --text-heading-section--font-weight: 700;
+
+  --text-heading-subsection: 1rem;
+  --text-heading-subsection--line-height: 1.5;
+  --text-heading-subsection--font-weight: 700;
+
+  --text-heading-label: 0.75rem;
+  --text-heading-label--line-height: 1.5;
+  --text-heading-label--letter-spacing: 0.05em;
+  --text-heading-label--font-weight: 800;
+
+  /* === Body scale (Assistant) === */
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.7;
+  --text-body-lg--letter-spacing: 0.01em;
+
+  --text-body-base: 1.125rem; /* ~18px */
+  --text-body-base--line-height: 1.625;
+  --text-body-base--letter-spacing: 0.015em;
+
+  --text-body-sm: 1rem; /* ~16px */
+  --text-body-sm--line-height: 1.6;
+  --text-body-sm--letter-spacing: 0.01em;
+
+  --text-body-xs: 0.75rem;
+  --text-body-xs--line-height: 1.5;
+  --text-body-xs--letter-spacing: 0.01em;
+
+  /* === Mono scale (JetBrains Mono) === */
+  --text-mono-display: 2rem;
+  --text-mono-display--line-height: 1.2;
+  --text-mono-display--font-weight: 600;
+
+  --text-mono-lg: 1.125rem;
+  --text-mono-lg--line-height: 1.5;
+  --text-mono-lg--font-weight: 500;
+
+  --text-mono-base: 1rem;
+  --text-mono-base--line-height: 1.5;
+  --text-mono-base--font-weight: 500;
+
+  --text-mono-sm: 0.875rem;
+  --text-mono-sm--line-height: 1.5;
+  --text-mono-sm--font-weight: 500;
+
+  --text-mono-xs: 0.75rem;
+  --text-mono-xs--line-height: 1.5;
+  --text-mono-xs--font-weight: 500;
+
+  /* === Caption === */
+  --text-caption: 0.8125rem; /* ~13px */
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.08em;
+  --text-caption--font-weight: 700;
+
+}
+
+/* ============================================================================
+ * :root — DESIGN.md raw token values
+ * Consumed via var(--color-*), var(--spacing-*), var(--rounded-*) in className
+ * ============================================================================ */
+:root {
+  /* === Base layer (Dark Mode) === */
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-raised: #334155;
+  --color-surface-elevated: #475569;
+  --color-border: #334155;
+  --color-border-strong: #475569;
+
+  /* === Text layer === */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+
+  /* === Primary === */
+  --color-primary: #10b981;
+
+  /* === Accent layer (Academic Precision) === */
+  --color-accent-primary: #4361EE;    /* Indigo */
+  --color-accent-brass: #D4A843;      /* Brass (H0, warning) */
+  --color-accent-teal: #10B981;       /* Teal/Green (Success) */
+  --color-accent-crimson: #EF4444;    /* Crimson (Error/Rejections) */
+  --color-accent-amber: #FFBF00;     /* Amber (warning-adjacent accent) */
+  --color-accent-cobalt: #4361EE;     /* Indigo (Active/Selected) */
+
+  /* === Accent variants === */
+  --color-accent-cobalt-bg: rgba(67, 97, 238, 0.08);
+  --color-accent-cobalt-bg-hover: rgba(67, 97, 238, 0.15);
+  --color-accent-cobalt-line: rgba(67, 97, 238, 0.4);
+  --color-accent-cobalt-strong: #364EC7;
+  --color-accent-cobalt-dark: #2B3EA1;
+
+  /* === Chart Colors === */
+  --chart-1: #4361EE;   /* Indigo */
+  --chart-2: #10B981;   /* Teal/Green */
+  --chart-3: #1A1A1A;   /* Ink */
+  --chart-5: #EF4444;   /* Crimson */
+
+  /* === Semantic aliases === */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #D4A843;
+  --color-info: #4361EE;
+
+  /* === Spacing scale (4px base unit) — var()-only consumption ===
+     These are NOT in @theme because the design intent (per handoff) is direct
+     var() consumption in className/style: e.g. `padding: var(--spacing-4)`.
+     Tailwind v4 utility generation for `p-1`/`m-2` etc. is NOT provided here;
+     use the spacing helpers from Step 2 composite components instead. */
+  --spacing-0_5: 2px;
+  --spacing-1: 4px;
+  --spacing-1_5: 6px;
+  --spacing-2: 8px;
+  --spacing-2_5: 10px;
+  --spacing-3: 12px;
+  --spacing-3_5: 14px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* === Rounded (border radius) — var()-only consumption ===
+     Same rationale as spacing: not in @theme. Use
+     `border-radius: var(--rounded-lg)` or composite components (Step 2)
+     for the design-correct radius. If utility classes like `rounded-md`
+     are needed, mirror this scale into @theme with `--radius-*` names. */
+  --rounded-none: 0px;
+  --rounded-xs: 2px;
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+  --rounded-lg: 12px;
+  --rounded-xl: 16px;
+  --rounded-2xl: 24px;
+  --rounded-full: 9999px;
+
+  /* === Recharts visual tokens (not in DESIGN.md; preserved for chart parity) === */
+  --chart-4: var(--color-accent-teal);                        /* H1 reference curve (teal — distinct from H0 brass, per DESIGN.md "power/acceptance" semantic) */
+  --chart-grid: #E2E2E2;                                       /* Grid line, matches border */
+  --chart-axis-label: #4A4A4A;                                 /* Axis ticks, high contrast */
+  --chart-rejection: rgba(239, 68, 68, 0.2);                  /* Type I error shaded region */
+  --chart-acceptance: rgba(16, 185, 129, 0.2);                /* Power (1-β) shaded region */
+
+  /* === Shadow tokens === */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+/* ============================================================================
+ * Base document styles
+ * ============================================================================ */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+body {
+  font-size: 16.5px;
+  letter-spacing: 0.015em;
+}
+
+@keyframes float-cycle {
+  0%   { opacity: 0; transform: translate3d(0, 20px, 0); }
+  15%  { opacity: var(--max-opacity); transform: translate3d(0, 5px, 0); }
+  85%  { opacity: var(--max-opacity); transform: translate3d(0, -15px, 0); }
+  100% { opacity: 0; transform: translate3d(0, -30px, 0); }
+}
+
+.math-chip-drift {
+  animation: float-cycle var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+
+/* ============================================================================
+ * KaTeX RTL isolation — DO NOT MODIFY
+ * Task 1 hard constraint. Math rendering is critical; KaTeX forces ltr inside
+ * the RTL page. Any change here must be tested against all formula types.
+ * ============================================================================ */
+.katex {
+  direction: ltr !important;
+  display: inline-block !important;
+  unicode-bidi: isolate !important;
+  white-space: nowrap !important;
+}
+
+.katex-display {
+  direction: ltr !important;
+  display: block !important;
+  text-align: center !important;
+  unicode-bidi: isolate !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.katex .katex-html {
+  direction: ltr !important;
+  display: inline-block !important;
+  unicode-bidi: isolate !important;
+  white-space: nowrap !important;
+}
+
+.katex .base {
+  direction: ltr !important;
+  display: inline-block !important;
+  unicode-bidi: isolate !important;
+  white-space: nowrap !important;
+}
+
+/* ============================================================================
+ * Signature Elements — DESIGN.md §Signature Elements
+ * The unique visual identity: the things users remember.
+ * ============================================================================ */
+
+/* .accent-bar — 48×4px indigo→teal gradient bar. Marks hero sections, primary actions, page titles. */
+.accent-bar {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-teal));
+  border-radius: var(--rounded-full);
+  flex-shrink: 0;
+}
+
+/* .curve-glow — Soft shadow for light mode. Appears on active calculation panels, live results. */
+.curve-glow {
+  box-shadow:
+    0 4px 24px rgba(67, 97, 238, 0.15),
+    0 8px 48px rgba(67, 97, 238, 0.05);
+  transition: box-shadow 300ms ease-out;
+}
+
+/* .stagger-in — Choreographed entrance (50ms stagger). Page load, mode switches. */
+.stagger-in > * {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: stagger-in 500ms ease-out forwards;
+}
+
+.stagger-in > *:nth-child(1)  { animation-delay: 0ms; }
+.stagger-in > *:nth-child(2)  { animation-delay: 50ms; }
+.stagger-in > *:nth-child(3)  { animation-delay: 100ms; }
+.stagger-in > *:nth-child(4)  { animation-delay: 150ms; }
+.stagger-in > *:nth-child(5)  { animation-delay: 200ms; }
+.stagger-in > *:nth-child(6)  { animation-delay: 250ms; }
+.stagger-in > *:nth-child(7)  { animation-delay: 300ms; }
+.stagger-in > *:nth-child(8)  { animation-delay: 350ms; }
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .pulse-brass — Live calculation indicator. Breathing indigo glow on active results. */
+.pulse-brass {
+  animation: pulse-brass 2s ease-in-out infinite;
+}
+
+@keyframes pulse-brass {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(67, 97, 238, 0);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(67, 97, 238, 0.3), 0 0 32px rgba(67, 97, 238, 0.15);
+  }
+}
+
+/* .pulse-success & .pulse-error — Breathing glows for conclusion panels */
+.pulse-success {
+  animation: pulse-success 3s ease-in-out infinite;
+}
+
+@keyframes pulse-success {
+  0%, 100% { box-shadow: 0 0 0 rgba(16, 185, 129, 0); border-color: var(--color-border); }
+  50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.2), 0 0 32px rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.5); }
+}
+
+.pulse-error {
+  animation: pulse-error 3s ease-in-out infinite;
+}
+
+@keyframes pulse-error {
+  0%, 100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); border-color: var(--color-border); }
+  50% { box-shadow: 0 0 16px rgba(239, 68, 68, 0.2), 0 0 32px rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.5); }
+}
+
+.chart-legend-dashed-line {
+  animation-name: chart-legend-dash-flow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes chart-legend-dash-flow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 8px;
+  }
+}
+
+.toc-target-flash {
+  animation: toc-target-flash 1.2s ease-out;
+  box-shadow:
+    0 0 0 1px rgba(67, 97, 238, 0.25),
+    0 0 24px rgba(67, 97, 238, 0.15),
+    0 0 56px rgba(16, 185, 129, 0.1);
+  border-radius: var(--rounded-lg);
+}
+
+@keyframes toc-target-flash {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(67, 97, 238, 0.4),
+      0 0 0 rgba(16, 185, 129, 0);
+  }
+  45% {
+    box-shadow:
+      0 0 0 1px rgba(67, 97, 238, 0.3),
+      0 0 18px rgba(67, 97, 238, 0.2),
+      0 0 42px rgba(16, 185, 129, 0.15);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(67, 97, 238, 0),
+      0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* ============================================================================
+ * Mega-menu viewport enter/exit + content-switch keyframes
+ * Uses design-system motion tokens: --motion-easing-entrance / --motion-easing-exit
+ * ============================================================================ */
+@keyframes mega-menu-viewport-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mega-menu-viewport-exit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mega-menu-content-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mega-menu-list-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Viewport: open/close driven by Radix data-state */
+.mega-menu-viewport[data-state="open"] {
+  animation-name: mega-menu-viewport-enter;
+  animation-duration: var(--motion-duration-normal);
+  animation-timing-function: var(--motion-easing-entrance);
+  animation-fill-mode: forwards;
+}
+
+.mega-menu-viewport[data-state="closed"] {
+  animation-name: mega-menu-viewport-exit;
+  animation-duration: var(--motion-duration-normal);
+  animation-timing-function: var(--motion-easing-exit);
+  animation-fill-mode: forwards;
+}
+
+/* Content: clean fade driven by Radix data-motion */
+.mega-menu-content[data-motion="from-start"],
+.mega-menu-content[data-motion="from-end"] {
+  animation-name: mega-menu-content-enter;
+  animation-duration: var(--motion-duration-normal);
+  animation-timing-function: var(--motion-easing-entrance);
+  animation-fill-mode: forwards;
+}
+
+.mega-menu-content[data-motion="to-start"],
+.mega-menu-content[data-motion="to-end"] {
+  /* Exiting content: just fade out quickly */
+  animation: none;
+  opacity: 0;
+  position: absolute;
+}
+
+/* List items inside mega menu: subtle staggered fade-up */
+.mega-menu-content .flex.flex-col > * {
+  opacity: 0;
+  animation-name: mega-menu-list-item-enter;
+  animation-duration: var(--motion-duration-fast);
+  animation-timing-function: var(--motion-easing-entrance);
+  animation-fill-mode: forwards;
+}
+
+.mega-menu-content .flex.flex-col > *:nth-child(1) { animation-delay: 0ms; }
+.mega-menu-content .flex.flex-col > *:nth-child(2) { animation-delay: 35ms; }
+.mega-menu-content .flex.flex-col > *:nth-child(3) { animation-delay: 70ms; }
+.mega-menu-content .flex.flex-col > *:nth-child(4) { animation-delay: 105ms; }
+.mega-menu-content .flex.flex-col > *:nth-child(5) { animation-delay: 140ms; }
+
+/* Respect prefers-reduced-motion — disable all signature animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .stagger-in > * {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .pulse-brass, .pulse-success, .pulse-error, .chart-legend-dashed-line {
+    animation: none !important;
+  }
+  .curve-glow {
+    transition: none !important;
+  }
+  .toc-target-flash {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Mega-menu: no animation, just appear/disappear.
+     Do NOT reset transform on .mega-menu-viewport — Radix uses inline translateX for positioning. */
+  .mega-menu-viewport {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+  .mega-menu-content,
+  .mega-menu-content .flex.flex-col > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================================
+ * Motion Tokens — DESIGN.md §Motion (for component consumption via var())
+ * ============================================================================ */
+:root {
+  --motion-duration-fast: 150ms;
+  --motion-duration-normal: 280ms;
+  --motion-duration-slow: 500ms;
+  --motion-duration-choreographed: 1000ms;
+  --motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-easing-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-stagger-delay: 50ms;
+}
+
+/* ============================================================================
+ * Hebrew legibility — custom font sizes for enhanced readability
+ * These override Tailwind defaults for better Hebrew text rendering.
+ * No !important — Heading typography tokens take precedence via specificity.
+ * ============================================================================ */
+body {
+  line-height: 1.625;
+}
+
+.text-xs { font-size: 0.85rem; }
+.text-sm { font-size: 0.95rem; }
+.text-base { font-size: 1.05rem; }
+.text-lg { font-size: 1.2rem; }
+.text-xl { font-size: 1.35rem; }
+
+/* ============================================================================
+ * KAL-KALA SPECIFIC UTILITIES
+ * ============================================================================ */
+@layer utilities {
+  .t-hero {
+    font-family: var(--font-playfair);
+    font-weight: 700;
+    font-style: italic;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #34d399 50%, var(--color-text-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .t-h1 { font-family: var(--font-display); font-weight: 700; }
+  .t-h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.375rem; }
+  .t-h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; }
+  
+  .t-formal { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.85; }
+  .t-formal-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; line-height: 1.4; }
+  
+  .t-casual { font-family: var(--font-sans); font-size: 1.05rem; }
+  
+  .t-data { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+  /* — Role Badge — */
+  .role-badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+  }
+  .role-formal   { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .role-casual   { background: rgba(16,185,129,0.15); color: var(--color-primary); }
+  
+  /* — Content Blocks — */
+  .tone-block {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--color-surface-raised);
+  }
+  .tone-block.formal-block { border-right: 3px solid #3b82f6; }
+  .tone-block.casual-block { border-right: 3px solid var(--color-primary); }
+
+  /* — Formal Definition Block — */
+  .definition-block {
+    background: var(--color-surface);
+    border-radius: 12px;
+    border: 1px solid var(--color-surface-raised);
+    border-right: 3px solid #3b82f6;
+    padding: 32px 48px;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.95;
+  }
+  .definition-block .def-term {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+  }
+  .definition-block p {
+    color: var(--color-text-primary);
+    opacity: 0.85;
+  }
+}
