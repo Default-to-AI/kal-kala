@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
-import { InlineMath } from 'react-katex';
+
 
 export interface JournalEntryRow {
   account: string;

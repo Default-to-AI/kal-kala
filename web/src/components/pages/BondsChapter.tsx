@@ -4,7 +4,7 @@ import { LessonBlock } from '../ui/LessonBlock';
 import { StepByStepExercise } from '../ui/StepByStepExercise';
 import { JournalEntry } from '../ui/JournalEntry';
 import { AmortizationTable } from '../ui/AmortizationTable';
-import { InlineMath } from 'react-katex';
+import { InlineMathToken } from '../ui/InlineMathToken';
 
 export function BondsChapter() {
   return (
@@ -57,7 +57,7 @@ export function BondsChapter() {
 
       <LessonBlock title="תרגיל מודרך 1: חברת שניר">
         <StepByStepExercise 
-          questionTitle="תרגיל באג״ח - שאלה 1"
+          questionTitle="נתוני השאלה"
           questionContent={
             <>
               <p>חברת "שניר" בע"מ הוקמה ב- 1.1.25 והיא עוסקת בייצור ריהוט.</p>
@@ -113,15 +113,15 @@ export function BondsChapter() {
                 <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-5 space-y-4">
                   <h4 className="font-bold text-[var(--color-primary)] border-b border-[var(--color-border)] pb-2">אג״ח</h4>
                   <ul className="list-disc list-inside space-y-2 text-sm">
-                    <li><strong>ריבית במזומן לאג״ח:</strong> <InlineMath math={String.raw`500,000 \times 5\% = 25,000`} /> ₪ (משולמת ב-31.12.25).</li>
+                    <li><strong>ריבית במזומן לאג״ח:</strong> <InlineMathToken math={String.raw`500{,}000 \times 5\% = 25{,}000`} /> ₪ (משולמת ב-31.12.25).</li>
                     <li><strong>הפחתת פרמיה:</strong> 30,000 ₪ חלקי 10 שנים = 3,000 ₪ לשנה. הפחתה <span className="text-[var(--color-success)] font-bold">מקטינה</span> את הוצאות הריבית.</li>
                     <li><strong>הוצאות מימון אג״ח:</strong> 25,000 - 3,000 = <span className="font-bold text-[var(--color-primary)]">22,000 ₪</span>.</li>
                   </ul>
                   
                   <h4 className="font-bold text-[var(--color-primary)] border-b border-[var(--color-border)] pb-2 mt-4">הלוואה</h4>
                   <ul className="list-disc list-inside space-y-2 text-sm">
-                    <li><strong>ריבית במזומן (2025):</strong> ב-30.6.25 משלמים על חצי שנה (<InlineMath math={String.raw`200,000 \times 8\% \times \frac{6}{12} = 8,000`} />). התשלום הבא ב-1.1.26 לא נכלל ב-2025.</li>
-                    <li><strong>הוצאות מימון (2025):</strong> נצברת ריבית לשנה שלמה = <InlineMath math={String.raw`200,000 \times 8\% = 16,000`} /> ₪.</li>
+                    <li><strong>ריבית במזומן (2025):</strong> ב-30.6.25 משלמים על חצי שנה (<InlineMathToken math={String.raw`200{,}000 \times 8\% \times \frac{6}{12} = 8{,}000`} />). התשלום הבא ב-1.1.26 לא נכלל ב-2025.</li>
+                    <li><strong>הוצאות מימון (2025):</strong> נצברת ריבית לשנה שלמה = <InlineMathToken math={String.raw`200{,}000 \times 8\% = 16{,}000`} /> ₪.</li>
                   </ul>
                 </div>
               )
@@ -148,7 +148,7 @@ export function BondsChapter() {
       
       <LessonBlock title="תרגיל מודרך 2: חברת דלל">
         <StepByStepExercise 
-          questionTitle="תרגיל באג״ח - שאלה 2"
+          questionTitle="נתוני השאלה"
           questionContent={
             <>
               <p>בתאריך 1.7.22 הנפיקה חברת "דלל" 5,000,000 ע.נ. אג"ח לחמש שנים, הנושאות ריבית נקובה בגובה 10%, אשר משולמת כל חצי שנה, בכל 1.1 ו-1.7.</p>
@@ -178,7 +178,7 @@ export function BondsChapter() {
               content: <p>ב-31.12.24 החברה חייבת ריבית על חצי השנה האחרונה, שתשולם רק למחרת ב-1.1.25.</p>,
               solution: (
                 <div className="text-sm space-y-2 bg-[var(--color-surface-alt)] p-4 rounded-lg">
-                  <p><strong>ריבית לחצי שנה:</strong> <InlineMath math={String.raw`5,000,000 \times 10\% \times \frac{6}{12} = 250,000`} /> ₪</p>
+                  <p><strong>ריבית לחצי שנה:</strong> <InlineMathToken math={String.raw`5{,}000{,}000 \times 10\% \times \frac{6}{12} = 250{,}000`} /> ₪</p>
                   <p>סכום זה יוצג כ"ריבית לשלם" בהתחייבויות שוטפות.</p>
                 </div>
               )

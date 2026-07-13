@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import { InlineMath } from 'react-katex';
+import { InlineMathToken } from './InlineMathToken';
 import { Card } from './Card';
 import { Badge } from './Badge';
 import { InsightBlock } from './FormulaBlock';
@@ -60,7 +60,7 @@ export function MCQuestionCard({ id, prompt, options, rationale }: MCQuestionCar
                 {opt.text ? (
                   <span className="inline-block">{opt.text}</span>
                 ) : (
-                  <InlineMath math={opt.latex ?? ''} />
+                  <InlineMathToken math={opt.latex ?? ''} />
                 )}
               </span>
               {isCorrect ? (

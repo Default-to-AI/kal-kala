@@ -3,7 +3,7 @@ import { PageHeader } from '../ui/PageHeader';
 import { LessonBlock } from '../ui/LessonBlock';
 import { ExerciseStep } from '../ui/ExerciseStep';
 import { JournalEntryTable } from '../ui/JournalEntryTable';
-import { InlineMath } from 'react-katex';
+import { InlineMathToken } from '../ui/InlineMathToken';
 
 export function LoansChapter() {
   return (
@@ -49,7 +49,7 @@ export function LoansChapter() {
             <div className="border border-[var(--accent)]/30 bg-[var(--accent)]/5 rounded-xl p-6">
               <h3 className="text-xl font-bold text-[var(--accent)] mb-4 border-b border-[var(--accent)]/20 pb-2">שנת 2018</h3>
               <p className="text-[var(--text-muted)] text-sm mb-4">
-                ההלוואה נלקחה ב-1.7.18. ב-31.12.18 יש לרשום הוצאות ריבית על חצי שנה (<InlineMath math={String.raw`200,000 \times 5\% \times \frac{6}{12} = 5,000`} />).
+                ההלוואה נלקחה ב-1.7.18. ב-31.12.18 יש לרשום הוצאות ריבית על חצי שנה (<InlineMathToken math={String.raw`200{,}000 \times 5\% \times \frac{6}{12} = 5{,}000`} />).
               </p>
               
               <div className="space-y-4 mb-6">

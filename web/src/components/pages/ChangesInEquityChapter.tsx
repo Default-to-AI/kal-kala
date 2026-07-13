@@ -14,7 +14,7 @@ export function ChangesInEquityChapter() {
 
       <LessonBlock title="תרגיל מודרך 1: חברת אבי">
         <StepByStepExercise 
-          questionTitle="תרגיל 1 - שאלה 1"
+          questionTitle="נתוני השאלה"
           questionContent={
             <>
               <p>חברת "אבי" הוקמה ביום ה- 1.1.24.</p>
@@ -99,6 +99,84 @@ export function ChangesInEquityChapter() {
                   ]}
                 />
               )
+            },
+            {
+              title: "שלב 5: דוח על השינויים בהון העצמי",
+              content: <p>בואו נרכז את כל הפעולות שביצענו במהלך שנת 2024 לתוך דוח אחד המסכם את תנועות ההון העצמי של החברה.</p>,
+              solution: (
+                <div className="overflow-x-auto rounded-lg border border-[var(--color-border)] shadow-sm">
+                  <table className="accounting-table whitespace-nowrap min-w-full">
+                    <thead className="bg-[var(--color-surface-alt)] border-b border-[var(--color-border)]">
+                      <tr>
+                        <th className="text-right px-4 py-3">תיאור</th>
+                        <th className="text-center px-4 py-3">הון רגילות</th>
+                        <th className="text-center px-4 py-3">הון בכורה</th>
+                        <th className="text-center px-4 py-3">פרמיה</th>
+                        <th className="text-center px-4 py-3">עודפים</th>
+                        <th className="text-center px-4 py-3 text-[var(--color-primary)] font-bold">סך הון עצמי</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-[var(--color-surface)]">
+                      <tr>
+                        <td className="px-4 py-3">יתרה ל- 1.1.24</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">-</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">הנפקת מניות רגילות</td>
+                        <td className="text-center px-4 py-3">40,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3">60,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">100,000</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">הנפקת מניות בכורה</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3">40,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">40,000</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">רווח נקי לשנה</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">150,000</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">150,000</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">מניות הטבה (30%)</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">12,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">12,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(24,000)</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">-</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">דיבידנד במזומן</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(80,000)</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-danger)]">(80,000)</td>
+                      </tr>
+                      <tr className="bg-[var(--color-surface-raised)] border-t-2 border-[var(--color-border)]">
+                        <td className="px-4 py-3 font-bold">יתרה ל- 31.12.24</td>
+                        <td className="text-center px-4 py-3 font-bold">52,000</td>
+                        <td className="text-center px-4 py-3 font-bold">52,000</td>
+                        <td className="text-center px-4 py-3 font-bold">36,000</td>
+                        <td className="text-center px-4 py-3 font-bold">70,000</td>
+                        <td className="text-center px-4 py-3 font-bold text-[var(--color-primary)]">210,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )
             }
           ]}
         />
@@ -106,7 +184,7 @@ export function ChangesInEquityChapter() {
       
       <LessonBlock title="תרגיל מודרך 2: חברת שניר">
         <StepByStepExercise 
-          questionTitle="תרגיל 1 - שאלה 2"
+          questionTitle="נתוני השאלה"
           questionContent={
             <div className="space-y-4">
               <p>חברת "שניר" בע"מ הוקמה ביום 1/1/19. להלן הרכב ההון העצמי של החברה ליום 31/12/24:</p>
@@ -126,6 +204,12 @@ export function ChangesInEquityChapter() {
                 <li>במהלך שנת 2025 הפסידה החברה סך של 800,000 ₪.</li>
                 <li>ב- 30.11.25 החליטה הנהלת החברה להקים קרן לחידוש ציוד בסך 100,000 ₪.</li>
                 <li>ב- 31.12.25 הכריזה החברה על חלוקת דיבידנד בסך 85,000 ₪. תשלום הדיבידנד יתבצע ב -1.2.26.</li>
+              </ol>
+              <br/>
+              <strong>נדרש:</strong>
+              <ol className="list-decimal list-inside">
+                <li>רשמו פקודות יומן לשנת 2025.</li>
+                <li>הציגו דוח על השינויים בהון העצמי לשנת 2025.</li>
               </ol>
             </div>
           }
@@ -211,6 +295,92 @@ export function ChangesInEquityChapter() {
                     { account: "זכאים לדיבידנד", credit: 85000, isDebit: false }
                   ]}
                 />
+              )
+            },
+            {
+              title: "שלב 6: דוח על השינויים בהון העצמי",
+              content: <p>בואו נרכז את כל הפעולות לדוח אחד מלא לשנת 2025.</p>,
+              solution: (
+                <div className="overflow-x-auto rounded-lg border border-[var(--color-border)] shadow-sm">
+                  <table className="accounting-table whitespace-nowrap min-w-full">
+                    <thead className="bg-[var(--color-surface-alt)] border-b border-[var(--color-border)]">
+                      <tr>
+                        <th className="text-right px-4 py-3">תיאור</th>
+                        <th className="text-center px-4 py-3">הון רגילות</th>
+                        <th className="text-center px-4 py-3">הון בכורה</th>
+                        <th className="text-center px-4 py-3">פרמיה</th>
+                        <th className="text-center px-4 py-3">קרן לחידוש ציוד</th>
+                        <th className="text-center px-4 py-3">עודפים</th>
+                        <th className="text-center px-4 py-3 text-[var(--color-primary)] font-bold">סך הון עצמי</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-[var(--color-surface)] text-sm sm:text-base">
+                      <tr>
+                        <td className="px-4 py-3">יתרה ל- 31.12.24</td>
+                        <td className="text-center px-4 py-3">500,000</td>
+                        <td className="text-center px-4 py-3">200,000</td>
+                        <td className="text-center px-4 py-3">300,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3">1,800,000</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">2,800,000</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">הנפקת מניות (נטו)</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">180,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">14,400</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">194,400</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">מניות הטבה (50%)</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">340,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(340,000)</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">-</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">הפסד נקי לשנה</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(800,000)</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-danger)]">(800,000)</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">קרן לחידוש ציוד</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-success)]">100,000</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(100,000)</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-primary)]">-</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-3 border-t border-[var(--color-border)]/30">הכרזה על דיבידנד</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-text-secondary)]">-</td>
+                        <td className="text-center px-4 py-3 text-[var(--color-danger)]">(85,000)</td>
+                        <td className="text-center px-4 py-3 font-semibold text-[var(--color-danger)]">(85,000)</td>
+                      </tr>
+                      <tr className="bg-[var(--color-surface-raised)] border-t-2 border-[var(--color-border)]">
+                        <td className="px-4 py-3 font-bold">יתרה ל- 31.12.25</td>
+                        <td className="text-center px-4 py-3 font-bold">1,020,000</td>
+                        <td className="text-center px-4 py-3 font-bold">200,000</td>
+                        <td className="text-center px-4 py-3 font-bold">314,400</td>
+                        <td className="text-center px-4 py-3 font-bold">100,000</td>
+                        <td className="text-center px-4 py-3 font-bold">475,000</td>
+                        <td className="text-center px-4 py-3 font-bold text-[var(--color-primary)]">2,109,400</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               )
             }
           ]}

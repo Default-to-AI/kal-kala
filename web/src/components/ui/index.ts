@@ -98,3 +98,5 @@ export type { FlashcardsProps, FlashcardData } from './Flashcards';
 
 export { AmortizationTable } from './AmortizationTable';
 export type { AmortizationTableProps, AmortizationRow } from './AmortizationTable';
+
+export { InlineMathToken } from './InlineMathToken';

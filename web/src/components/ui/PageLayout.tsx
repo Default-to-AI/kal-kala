@@ -3,6 +3,7 @@ import { useScrollPosition } from '../../hooks/useScrollPosition';
 import { ScrollToTopButton } from '../ScrollToTopButton';
 import { TableOfContents } from './TableOfContents';
 import { CyberneticBackground } from './CyberneticBackground';
+import { ChapterNavigation } from './ChapterNavigation';
 
 export interface PageLayoutProps {
   /** The content of the header (title, logo, tabs, etc.) */
@@ -61,6 +62,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       <div className={`flex-1 flex flex-col items-center ${outerClassName}`}>
         <main ref={mainRef} className={`w-full ${contentWidthClassName} mx-auto flex flex-col gap-6`} dir={dir}>
           {children}
+          <ChapterNavigation />
         </main>
 
         {footer && (

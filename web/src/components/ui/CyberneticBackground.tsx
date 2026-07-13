@@ -1,30 +1,30 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { InlineMath } from 'react-katex';
+import { InlineMathToken } from './InlineMathToken';
 
 // Keep standard statistical formulas
 const FORMULAS = [
-  { tex: "f(x)=\\dfrac{1}{\\sigma\\sqrt{2\\pi}}\\,e^{-\\frac12\\left(\\frac{x-\\mu}{\\sigma}\\right)^2}", cls: "lg" },
-  { tex: "P(A\\mid B)=\\dfrac{P(B\\mid A)\\,P(A)}{P(B)}", cls: "alt" },
-  { tex: "\\mathbb{E}[X]=\\int_{-\\infty}^{\\infty} x\\,f(x)\\,dx", cls: "" },
-  { tex: "\\operatorname{Var}(X)=\\mathbb{E}\\!\\left[(X-\\mu)^2\\right]", cls: "faint" },
-  { tex: "\\bar{x}=\\dfrac{1}{n}\\sum_{i=1}^{n} x_i", cls: "sm" },
-  { tex: "s^2=\\dfrac{1}{n-1}\\sum_{i=1}^{n}(x_i-\\bar{x})^2", cls: "" },
-  { tex: "\\hat{\\theta}=\\arg\\max_{\\theta}\\,L(\\theta\\mid x)", cls: "alt sm" },
-  { tex: "Z=\\dfrac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}}", cls: "" },
-  { tex: "H_0:\\,\\mu=\\mu_0", cls: "faint sm" },
-  { tex: "p=P(T>t\\mid H_0)", cls: "faint sm" },
-  { tex: "\\rho_{X,Y}=\\dfrac{\\operatorname{Cov}(X,Y)}{\\sigma_X\\sigma_Y}", cls: "alt" },
-  { tex: "\\hat{y}=\\beta_0+\\beta_1 x", cls: "sm" },
-  { tex: "F(x)=P(X\\le x)", cls: "faint sm" },
-  { tex: "\\mu=\\sum_{i} x_i\\,p_i", cls: "faint sm" },
-  { tex: "\\lim_{n\\to\\infty}\\dfrac{\\bar{X}_n-\\mu}{\\sigma/\\sqrt{n}}\\xrightarrow{d}\\mathcal{N}(0,1)", cls: "lg" },
-  { tex: "\\mathcal{N}(\\mu,\\sigma^2)", cls: "alt sm" },
-  { tex: "X\\sim\\text{Bin}(n,p)", cls: "faint sm" },
-  { tex: "\\hat{\\beta}=(X^{\\top}X)^{-1}X^{\\top}y", cls: "" },
-  { tex: "\\int_{-\\infty}^{\\infty} f(x)\\,dx=1", cls: "faint" },
-  { tex: "\\sigma^2=\\mathbb{E}[X^2]-(\\mathbb{E}[X])^2", cls: "sm" },
-  { tex: "\\text{MSE}=\\mathbb{E}\\!\\left[(\\hat{\\theta}-\\theta)^2\\right]", cls: "alt sm" },
-  { tex: "P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}", cls: "" }
+  { tex: String.raw`f(x)=\dfrac{1}{\sigma\sqrt{2\pi}} \cdot e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}`, cls: "lg" },
+  { tex: String.raw`P(A\mid B)=\dfrac{P(B\mid A) \cdot P(A)}{P(B)}`, cls: "alt" },
+  { tex: String.raw`\mathbb{E}[X]=\int_{-\infty}^{\infty} x \cdot f(x) \,dx`, cls: "" },
+  { tex: String.raw`\operatorname{Var}(X)=\mathbb{E}\!\left[(X-\mu)^2\right]`, cls: "faint" },
+  { tex: String.raw`\bar{x}=\dfrac{1}{n}\sum_{i=1}^{n} x_i`, cls: "sm" },
+  { tex: String.raw`s^2=\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2`, cls: "" },
+  { tex: String.raw`\hat{\theta}=\arg\max_{\theta}\,L(\theta\mid x)`, cls: "alt sm" },
+  { tex: String.raw`Z=\dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}`, cls: "" },
+  { tex: String.raw`H_0:\,\mu=\mu_0`, cls: "faint sm" },
+  { tex: String.raw`p=P(T>t\mid H_0)`, cls: "faint sm" },
+  { tex: String.raw`\rho_{X,Y}=\dfrac{\operatorname{Cov}(X,Y)}{\sigma_X \cdot \sigma_Y}`, cls: "alt" },
+  { tex: String.raw`\hat{y}=\beta_0+\beta_1 \cdot x`, cls: "sm" },
+  { tex: String.raw`F(x)=P(X\le x)`, cls: "faint sm" },
+  { tex: String.raw`\mu=\sum_{i} x_i \cdot p_i`, cls: "faint sm" },
+  { tex: String.raw`\lim_{n\to\infty}\dfrac{\bar{X}_n-\mu}{\sigma/\sqrt{n}}\xrightarrow{d}\mathcal{N}(0,1)`, cls: "lg" },
+  { tex: String.raw`\mathcal{N}(\mu,\sigma^2)`, cls: "alt sm" },
+  { tex: String.raw`X\sim\text{Bin}(n,p)`, cls: "faint sm" },
+  { tex: String.raw`\hat{\beta}=(X^{\top}X)^{-1}X^{\top}y`, cls: "" },
+  { tex: String.raw`\int_{-\infty}^{\infty} f(x)\,dx=1`, cls: "faint" },
+  { tex: String.raw`\sigma^2=\mathbb{E}[X^2]-(\mathbb{E}[X])^2`, cls: "sm" },
+  { tex: String.raw`\text{MSE}=\mathbb{E}\!\left[(\hat{\theta}-\theta)^2\right]`, cls: "alt sm" },
+  { tex: String.raw`P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}`, cls: "" }
 ];
 
 interface PlacedChip {
@@ -159,7 +159,7 @@ function MathChip({ initialChip }: { initialChip: PlacedChip }) {
       } as React.CSSProperties}
       onAnimationIteration={handleCycle}
     >
-      <InlineMath math={chip.tex} />
+      <InlineMathToken math={chip.tex} />
     </div>
   );
 }

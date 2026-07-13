@@ -36,11 +36,13 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ title = 'בחן את ע�
       <h3 className="text-xl font-bold text-[var(--color-primary)] mb-4">{title}</h3>
       
       <div 
-        className="relative w-full aspect-[4/3] perspective-1000 cursor-pointer group"
+        className="relative w-full aspect-[4/3] cursor-pointer group"
+        style={{ perspective: '1000px' }}
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <motion.div
-          className="w-full h-full relative preserve-3d transition-all duration-500"
+          className="w-full h-full relative transition-all duration-500"
+          style={{ transformStyle: 'preserve-3d' }}
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 0 }}
         >
