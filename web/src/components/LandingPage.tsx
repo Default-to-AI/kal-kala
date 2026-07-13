@@ -25,7 +25,7 @@ export function LandingPage() {
         </div>
 
         <div className="space-y-6">
-          <h2 className="t-h2 text-2xl mb-4 border-b-2 border-[var(--surface-alt)] pb-2 inline-block">פרק 2: דוח שינויים בהון</h2>
+          <h2 className="t-h2 text-2xl mb-4 border-b-2 border-[var(--surface-alt)] pb-2 inline-block">פרק 2: דוח על שינויים בהון</h2>
           
           <Link to="/changes-in-equity" className="block group">
             <Card className="p-6 transition-all duration-300 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent-glow)]">
@@ -62,7 +62,7 @@ export function LandingPage() {
           
           <Link to="/securities" className="block group">
             <Card className="p-6 transition-all duration-300 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent-glow)]">
-              <h3 className="t-h3 text-xl mb-2 text-[var(--text)] group-hover:text-[var(--accent)]">השקעה בניירות ערך (FVTPL)</h3>
+              <h3 className="t-h3 text-xl mb-2 text-[var(--text)] group-hover:text-[var(--accent)]">השקעות בניירות ערך (FVTPL)</h3>
               <p className="t-casual text-[var(--text-muted)] text-sm">תרגול מודרך לשערוך שווי הוגן של מניות המוחזקות למסחר, טיפול בדיבידנדים ורישום רבעוני.</p>
             </Card>
           </Link>

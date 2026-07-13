@@ -41,12 +41,28 @@ describe('Accounting Utils', () => {
     it('calculates bond at premium', () => {
       // 1000 par, 1100 issue, 5% coupon, 5 years
       const sched = calculateStraightLineBond(1000, 1100, 5, 5);
-      
+
       // Amortization = 100 / 5 = 20
       // Expense = 50 - 20 = 30
-      
+
       expect(sched[0].expense).toBe(30);
       expect(sched[0].closing).toBe(1080);
+      expect(sched[4].closing).toBe(1000);
+    });
+
+    it('calculates bond at par (no amortization)', () => {
+      // 1000 par, 1000 issue (at par), 5% coupon, 5 years
+      const sched = calculateStraightLineBond(1000, 1000, 5, 5);
+
+      // No discount/premium → yearlyAmort = 0
+      // Coupon = 1000 * 5% = 50
+      // Expense = 50 (coupon - 0 since isDiscount = false but amort = 0 anyway)
+
+      expect(sched).toHaveLength(5);
+      expect(sched[0].opening).toBe(1000);
+      expect(sched[0].expense).toBe(50);
+      expect(sched[0].coupon).toBe(50);
+      expect(sched[0].closing).toBe(1000);
       expect(sched[4].closing).toBe(1000);
     });
   });
