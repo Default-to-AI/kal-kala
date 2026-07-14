@@ -21,8 +21,8 @@ export function CalculatorLayout({
   return (
     <div className="space-y-6">
       <div className="mb-4">
-        <h2 className="t-h2 text-[var(--text)] mb-2">{title}</h2>
-        {description && <div className="t-casual text-[var(--text)] opacity-85">{description}</div>}
+        <h2 className="t-h2 text-[var(--color-text-primary)] mb-2">{title}</h2>
+        {description && <div className="t-casual text-[var(--color-text-primary)] opacity-85">{description}</div>}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
@@ -36,12 +36,12 @@ export function CalculatorLayout({
           {hasData ? (
             results
           ) : (
-            <Card className="flex flex-col items-center justify-center p-12 text-center min-h-[400px] border-dashed border-2 border-[var(--surface-alt)] bg-transparent">
-              <div className="w-16 h-16 rounded-full bg-[var(--surface-alt)] flex items-center justify-center mb-4 text-[var(--text-muted)]">
+            <Card className="flex flex-col items-center justify-center p-12 text-center min-h-[400px] border-dashed border-2 border-[var(--color-surface-raised)] bg-transparent">
+              <div className="w-16 h-16 rounded-full bg-[var(--color-surface-raised)] flex items-center justify-center mb-4 text-[var(--color-text-secondary)]">
                 <Calculator size={32} />
               </div>
-              <h3 className="t-h3 text-[var(--text)] mb-2">ממתין לנתונים</h3>
-              <p className="t-casual text-[var(--text-muted)] max-w-sm">
+              <h3 className="t-h3 text-[var(--color-text-primary)] mb-2">ממתין לנתונים</h3>
+              <p className="t-casual text-[var(--color-text-secondary)] max-w-sm">
                 {emptyStateMessage}
               </p>
             </Card>

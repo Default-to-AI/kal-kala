@@ -5,7 +5,7 @@ export function SiteHeader() {
   const currentPath = location.pathname;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--surface-alt)] bg-[var(--bg)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--bg)]/60">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--color-surface-raised)] bg-[var(--color-background)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--color-background)]/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link 
           to="/" 
@@ -16,19 +16,19 @@ export function SiteHeader() {
         <nav className="hidden md:flex gap-6">
           <Link 
             to="/equity" 
-            className={`text-sm font-semibold transition-colors ${currentPath.includes('equity') ? 'text-[var(--accent)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}
+            className={`text-sm font-semibold transition-colors ${currentPath.includes('equity') ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
           >
             הון עצמי
           </Link>
           <Link 
             to="/loans" 
-            className={`text-sm font-semibold transition-colors ${currentPath.includes('liabilities') || currentPath.includes('loans') ? 'text-[var(--accent)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}
+            className={`text-sm font-semibold transition-colors ${currentPath.includes('liabilities') || currentPath.includes('loans') ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
           >
             התחייבויות
           </Link>
           <Link 
             to="/bonds" 
-            className={`text-sm font-semibold transition-colors ${currentPath.includes('bonds') ? 'text-[var(--accent)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}
+            className={`text-sm font-semibold transition-colors ${currentPath.includes('bonds') ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
           >
             אג״ח
           </Link>

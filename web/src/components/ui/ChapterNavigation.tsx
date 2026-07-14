@@ -14,9 +14,9 @@ const CHAPTERS: ChapterDef[] = [
   { id: 2, path: '/changes-in-equity', title: 'פרק 2: שינויים בהון עצמי' },
   { id: 3, path: '/loans', title: 'פרק 3: התחייבויות לטווח ארוך' },
   { id: 4, path: '/bonds', title: 'פרק 4: איגרות חוב' },
-  { id: 6, path: '/securities', title: 'פרק 6: השקעה בניירות ערך' },
-  { id: 7, path: '/equity-method', title: 'פרק 7: השקעה בחברה כלולה' },
-  { id: 8, path: '/cash-flow', title: 'פרק 8: דוח תזרים מזומנים' },
+  { id: 5, path: '/securities', title: 'פרק 5: השקעה בניירות ערך' },
+  { id: 6, path: '/equity-method', title: 'פרק 6: השקעה בחברה כלולה' },
+  { id: 7, path: '/cash-flow', title: 'פרק 7: דוח תזרים מזומנים' },
 ];
 
 export function ChapterNavigation() {
@@ -36,8 +36,12 @@ export function ChapterNavigation() {
   const nextChapter = currentIndex < CHAPTERS.length - 1 ? CHAPTERS[currentIndex + 1] : null;
 
   return (
-    <div className="w-full py-12 mt-12 border-t border-[var(--color-border)] flex flex-col items-center justify-center gap-6" dir="rtl">
-      
+    <div
+      dir="rtl"
+      data-tour="chapter-nav"
+      className="tour-chapter-nav fixed bottom-0 left-0 right-0 z-40 py-3 px-4 flex flex-col items-center justify-center gap-2 bg-[var(--color-surface)]/85 backdrop-blur-md border-t border-[var(--color-border)] shadow-[0_-4px_16px_rgba(0,0,0,0.25)]"
+    >
+
       {/* Container for the navigation */}
       <div className="flex items-center justify-center w-full max-w-4xl relative px-4">
         

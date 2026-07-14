@@ -33,15 +33,15 @@ export const AmortizationTable: React.FC<AmortizationTableProps> = ({
       </div>
       
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-right whitespace-nowrap">
+        <table className="w-full text-sm whitespace-nowrap" dir="rtl">
           <thead>
-            <tr className="bg-[var(--color-surface)] border-b border-[var(--color-border)]">
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-right">תאריך</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-left">יתרת פתיחה</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-left">הוצ' מימון</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-left">תשלום מזומן</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-left">הפחתה</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-text-secondary)] text-left">יתרת סגירה</th>
+            <tr className="bg-[var(--color-surface-raised)] border-b-2 border-[var(--color-border)]">
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">תאריך</th>
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">יתרת פתיחה</th>
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">הוצ' מימון</th>
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">תשלום מזומן</th>
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">הפחתה</th>
+              <th className="px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">יתרת סגירה</th>
             </tr>
           </thead>
           <tbody>
@@ -55,16 +55,16 @@ export const AmortizationTable: React.FC<AmortizationTableProps> = ({
                     isActive ? 'bg-[var(--color-primary)]/10' : 'hover:bg-[var(--color-surface-alt)]'
                   }`}
                 >
-                  <td className={`px-4 py-4 ${isActive ? 'font-bold text-[var(--color-primary)]' : 'text-[var(--color-text)]'}`}>
+                  <td className={`px-4 py-4 text-start ${isActive ? 'font-bold text-[var(--color-primary)]' : 'text-[var(--color-text)]'}`}>
                     {row.date}
                   </td>
-                  <td className="px-4 py-4 text-left font-mono">{row.openingBalance.toLocaleString()}</td>
-                  <td className="px-4 py-4 text-left font-mono">{row.interestExpense.toLocaleString()}</td>
-                  <td className="px-4 py-4 text-left font-mono">{row.cashPaid.toLocaleString()}</td>
-                  <td className={`px-4 py-4 text-left font-mono ${type === 'premium' ? 'text-[var(--color-danger)]' : 'text-[var(--color-success)]'}`}>
+                  <td className="px-4 py-4 text-end font-mono">{row.openingBalance.toLocaleString()}</td>
+                  <td className="px-4 py-4 text-end font-mono">{row.interestExpense.toLocaleString()}</td>
+                  <td className="px-4 py-4 text-end font-mono">{row.cashPaid.toLocaleString()}</td>
+                  <td className={`px-4 py-4 text-end font-mono ${type === 'premium' ? 'text-[var(--color-danger)]' : 'text-[var(--color-success)]'}`}>
                     {row.amortization.toLocaleString()}
                   </td>
-                  <td className="px-4 py-4 text-left font-mono font-bold text-[var(--color-text)]">
+                  <td className="px-4 py-4 text-end font-mono font-bold text-[var(--color-text)]">
                     {row.closingBalance.toLocaleString()}
                   </td>
                 </tr>

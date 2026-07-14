@@ -22,7 +22,7 @@ export function ExerciseStep({ title, question, children, defaultOpen = false }:
       
       {!isOpen && (
         <div className="mt-6">
-          <Button onClick={() => setIsOpen(true)} variant="secondary" size="sm" className="gap-2 border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent-glow)]">
+          <Button onClick={() => setIsOpen(true)} variant="secondary" size="sm" className="gap-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--accent-glow)]">
             <CheckCircle2 size={16} />
             הצג פתרון מודרך
           </Button>
@@ -38,12 +38,12 @@ export function ExerciseStep({ title, question, children, defaultOpen = false }:
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden mt-8"
           >
-            <div className="border-t-2 border-[var(--surface-alt)] pt-6">
+            <div className="border-t-2 border-[var(--color-surface-raised)] pt-6">
               {children}
             </div>
             
             <div className="mt-6 flex justify-end">
-              <Button onClick={() => setIsOpen(false)} variant="ghost" size="sm" className="text-[var(--text-muted)] hover:text-[var(--text)]">
+              <Button onClick={() => setIsOpen(false)} variant="ghost" size="sm" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">
                 הסתר פתרון
                 <ChevronDown size={16} className="rotate-180 mr-1" />
               </Button>

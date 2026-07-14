@@ -67,12 +67,12 @@ export const JournalEntry: React.FC<JournalEntryProps> = ({
           >
             <div className="p-4 sm:p-6">
               <div className="overflow-x-auto">
-                <table className="w-full text-sm text-right">
+                <table className="w-full text-sm" dir="rtl">
                   <thead>
-                    <tr className="border-b border-[var(--color-border)]">
-                      <th className="pb-3 font-semibold text-[var(--color-text-secondary)] w-1/2">חשבון</th>
-                      <th className="pb-3 font-semibold text-[var(--color-text-secondary)] text-left w-1/4">חובה (₪)</th>
-                      <th className="pb-3 font-semibold text-[var(--color-text-secondary)] text-left w-1/4">זכות (₪)</th>
+                    <tr className="bg-[var(--color-surface-raised)] border-b-2 border-[var(--color-border)]">
+                      <th className="py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)] w-1/2">חשבון</th>
+                      <th className="py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)] w-1/4">חובה (₪)</th>
+                      <th className="py-2.5 text-center text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)] w-1/4">זכות (₪)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -83,13 +83,13 @@ export const JournalEntry: React.FC<JournalEntryProps> = ({
                           entry.isDebit ? 'bg-[var(--color-success)]/5' : 'bg-[var(--color-danger)]/5'
                         }`}
                       >
-                        <td className={`py-3 text-[var(--color-text)] font-medium ${!entry.isDebit ? 'pr-8' : ''}`}>
+                        <td className={`py-3 text-start text-[var(--color-text)] font-medium ${!entry.isDebit ? 'pl-8' : ''}`}>
                           {entry.account}
                         </td>
-                        <td className="py-3 text-left font-mono font-medium text-[var(--color-success)]">
+                        <td className="py-3 text-end font-mono font-medium text-[var(--color-success)]">
                           {entry.debit ? entry.debit.toLocaleString() : ''}
                         </td>
-                        <td className="py-3 text-left font-mono font-medium text-[var(--color-danger)]">
+                        <td className="py-3 text-end font-mono font-medium text-[var(--color-danger)]">
                           {entry.credit ? entry.credit.toLocaleString() : ''}
                         </td>
                       </tr>

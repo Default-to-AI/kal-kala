@@ -80,7 +80,7 @@ export const StepByStepExercise: React.FC<StepByStepExerciseProps> = ({
             transition={{ duration: 0.3 }}
             className="min-h-[250px]"
           >
-            <h4 className="text-lg font-bold text-[var(--color-primary)] mb-4">
+            <h4 className="text-lg font-bold text-[var(--color-text-primary)] mb-4">
               {steps[currentStep].title}
             </h4>
             

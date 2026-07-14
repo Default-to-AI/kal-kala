@@ -35,11 +35,11 @@ export function LessonBlock({ title, children, className = '', variant = 'defaul
   return (
     <section className={`mb-12 ${className}`}>
       {title && (
-        <h2 className="t-h2 text-[var(--text)] mb-6 pb-2 border-b-2 border-[var(--surface-alt)] inline-block">
+        <h2 className="t-h2 text-[var(--color-text-primary)] mb-6 pb-2 border-b-2 border-[var(--color-surface-raised)] inline-block">
           {title}
         </h2>
       )}
-      <div className="t-formal text-[var(--text)] opacity-90 space-y-4">
+      <div className="t-formal text-[var(--color-text-primary)] opacity-90 space-y-4">
         {children}
       </div>
     </section>

@@ -3,6 +3,7 @@ import { SiteHeader } from './components/SiteHeader';
 import { SiteFooter } from './components/SiteFooter';
 import { LandingPage } from './components/LandingPage';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
+import { ScrollToTop } from './components/ScrollToTop';
 
 import { EquityChapter } from './components/pages/EquityChapter';
 import { ChangesInEquityChapter } from './components/pages/ChangesInEquityChapter';
@@ -11,13 +12,15 @@ import { BondsChapter } from './components/pages/BondsChapter';
 import { SecuritiesChapter } from './components/pages/SecuritiesChapter';
 import { EquityMethodChapter } from './components/pages/EquityMethodChapter';
 import { CashFlowChapter } from './components/pages/CashFlowChapter';
+import { Exam2017MoedBChapter } from './components/pages/Exam2017MoedBChapter';
 
 
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen bg-[var(--bg)] text-[var(--text)] selection:bg-[var(--accent)] selection:text-white">
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white">
         <SiteHeader />
         
         <main className="flex-1 w-full">
@@ -30,6 +33,7 @@ function App() {
             <Route path="/securities" element={<SecuritiesChapter />} />
             <Route path="/equity-method" element={<EquityMethodChapter />} />
             <Route path="/cash-flow" element={<CashFlowChapter />} />
+            <Route path="/exam-2017-moed-b" element={<Exam2017MoedBChapter />} />
           </Routes>
         </main>
         
